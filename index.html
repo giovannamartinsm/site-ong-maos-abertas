@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONG Mãos Abertas - Início</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Cabeçalho com Navegação Responsiva -->
+    <header>
+        <div class="container">
+            <h1>ONG Mãos Abertas</h1>
+            
+            <!-- Controle de acionamento do Menu Mobile via Checkbox -->
+            <input type="checkbox" id="menu-check" class="menu-check">
+            <label for="menu-check" class="menu-toggle" aria-label="Abrir Menu de Navegação">&#9776;</label>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    
+                    <!-- Item com Submenu Dropdown -->
+                    <li class="dropdown">
+                        <a href="projetos.html">Projetos &#9662;</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="projetos.html#educacao">Educação</a></li>
+                            <li><a href="projetos.html#alimentos">Alimentação</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="cadastro.html">Seja Voluntário</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal Alinhado ao Grid -->
+    <main class="container">
+        <!-- Seção Institucional / Apresentação -->
+        <section id="sobre">
+            <h2>Sobre a Nossa ONG</h2>
+            <img src="assets/imagens/banner-ong.jpg" alt="Voluntários da ONG sorrindo e organizando doações de alimentos">
+            <p>Nossa missão é transformar vidas através da solidariedade e da ação comunitária, oferecendo suporte a quem mais precisa.</p>
+        </section>
+
+        <!-- Seção de Componentes de Feedback Visual (Para validação/prints) -->
+        <section id="feedback-demo">
+            <h2>Componentes de Feedback Visual</h2>
+            
+            <!-- Badges (Etiquetas) -->
+            <div style="margin-bottom: var(--spacing-md);">
+                <span class="badge badge-success">Ação Concluída</span>
+                <span class="badge badge-warning">Em Análise</span>
+                <span class="badge badge-danger">Urgente</span>
+            </div>
+
+            <!-- Caixas de Alerta (Alerts) -->
+            <div class="alert alert-success">
+                <strong>Sucesso!</strong> Sua inscrição para voluntariado foi registrada com sucesso.
+            </div>
+            <div class="alert alert-info">
+                <strong>Informativo:</strong> Próximo mutirão de arrecadação agendado para o próximo sábado.
+            </div>
+
+            <!-- Toast / Notificação em Destaque -->
+            <div class="toast">
+                <span>Notificação: Novas vagas abertas para a oficina de educação!</span>
+            </div>
+        </section>
+
+        <!-- Seção de Contato -->
+        <section id="contato">
+            <h2>Entre em Contato</h2>
+            <p>Fale conosco para tirar dúvidas, fazer doações ou se tornar um voluntário:</p>
+            <ul>
+                <li><strong>E-mail:</strong> contato@nossaong.org.br</li>
+                <li><strong>Telefone:</strong> (11) 99999-8888</li>
+                <li><strong>Endereço:</strong> Rua da Solidariedade, 123 - São Paulo/SP</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Rodapé Institucional -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 ONG Mãos Abertas. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
