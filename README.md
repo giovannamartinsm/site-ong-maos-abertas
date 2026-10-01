@@ -18,7 +18,6 @@ Este projeto consiste na interface web para a **ONG Mãos Abertas**, desenvolvid
 
 ## 📁 Estrutura de Arquivos
 
-```text
 site-ong/
 ├── assets/
 │   └── imagens/
@@ -32,3 +31,27 @@ site-ong/
 ├── js/
 │   └── main.js
 └── README.md
+
+---
+
+## 💻 Como Executar o Projeto Localmente
+
+1. **Clonar o repositório:**
+   git clone https://github.com/giovannamartinsm/site-ong-maos-abertas.git
+
+2. **Acessar o diretório do projeto:**
+   cd site-ong-maos-abertas
+
+3. **Executar a aplicação:**
+   * Abra a pasta no **Visual Studio Code** (`code .`).
+   * Abra o arquivo `index.html` no seu navegador ou utilize a extensão **Live Server** do VS Code.
+
+*Por ser uma aplicação SPA desenvolvida exclusivamente com JavaScript Vanilla, não é necessário instalar dependências via `npm` ou executar comandos de build.*
+
+---
+
+## 🔀 Estratégia de Versionamento e GitFlow
+
+* **Adoção do GitFlow:** Uso das branches `main` (produção estável), `develop` (integração contínua) e `feature/*` para desenvolvimento de novas funcionalidades isoladas.
+* **Conventional Commits:** Padronização das mensagens de commit através de prefixos semânticos (`feat:`, `fix:`, `docs:`).
+* **Releases e Tags:** Criação de tags semânticas (ex: `v1.0.0`) para o registro de versões estáveis.
