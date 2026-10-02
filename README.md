@@ -4,6 +4,13 @@ Este projeto consiste na interface web para a **ONG Mãos Abertas**, desenvolvid
 
 ---
 
+## 🌐 Deploy em Produção
+
+O projeto está publicado e acessível globalmente via **Vercel**:
+👉 **[site-ong-maos-abertas-dlm8.vercel.app](https://site-ong-maos-abertas-dlm8.vercel.app)**
+
+---
+
 ## 🚀 Tecnologias Utilizadas
 
 * **HTML5 Semântico:** Estruturação acessível e otimizada para motores de busca.
@@ -19,12 +26,12 @@ Este projeto consiste na interface web para a **ONG Mãos Abertas**, desenvolvid
 ## 📁 Estrutura de Arquivos
 
 site-ong/
-├── assets/
-│   └── imagens/
-│       └── banner-ong.jpg
-├── css/
-│   └── style.css
 ├── html/
+│   ├── assets/
+│   │   └── imagens/
+│   │       └── banner-ong.jpg
+│   ├── css/
+│   │   └── style.css
 │   ├── index.html
 │   ├── projetos.html
 │   └── cadastro.html
@@ -37,21 +44,5 @@ site-ong/
 ## 💻 Como Executar o Projeto Localmente
 
 1. **Clonar o repositório:**
-   git clone https://github.com/giovannamartinsm/site-ong-maos-abertas.git
-
-2. **Acessar o diretório do projeto:**
-   cd site-ong-maos-abertas
-
-3. **Executar a aplicação:**
-   * Abra a pasta no **Visual Studio Code** (`code .`).
-   * Abra o arquivo `index.html` no seu navegador ou utilize a extensão **Live Server** do VS Code.
-
-*Por ser uma aplicação SPA desenvolvida exclusivamente com JavaScript Vanilla, não é necessário instalar dependências via `npm` ou executar comandos de build.*
-
----
-
-## 🔀 Estratégia de Versionamento e GitFlow
-
-* **Adoção do GitFlow:** Uso das branches `main` (produção estável), `develop` (integração contínua) e `feature/*` para desenvolvimento de novas funcionalidades isoladas.
-* **Conventional Commits:** Padronização das mensagens de commit através de prefixos semânticos (`feat:`, `fix:`, `docs:`).
-* **Releases e Tags:** Criação de tags semânticas (ex: `v1.0.0`) para o registro de versões estáveis.
+   ```bash
+   git clone [https://github.com/giovannamartinsm/site-ong-maos-abertas.git](https://github.com/giovannamartinsm/site-ong-maos-abertas.git)
