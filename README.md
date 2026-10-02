@@ -25,18 +25,18 @@ O projeto está publicado e acessível globalmente via **Vercel**:
 
 ## 📁 Estrutura de Arquivos
 
-site-ong/
-├── html/
-│   ├── assets/
-│   │   └── imagens/
-│   │       └── banner-ong.jpg
-│   ├── css/
-│   │   └── style.css
-│   ├── index.html
-│   ├── projetos.html
-│   └── cadastro.html
-├── js/
-│   └── main.js
+site-ong/<br>
+├── html/<br>
+│   ├── assets/<br>
+│   │   └── imagens/<br>
+│   │       └── banner-ong.jpg<br>
+│   ├── css/<br>
+│   │   └── style.css<br>
+│   ├── index.html<br>
+│   ├── projetos.html<br>
+│   └── cadastro.html<br>
+├── js/<br>
+│   └── main.js<br>
 └── README.md
 
 ---
