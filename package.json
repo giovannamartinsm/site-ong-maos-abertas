@@ -1,0 +1,38 @@
+{
+  "name": "site-ong",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "build:js": "terser js/main.js -o js/main.min.js -c -m",
+    "build:css": "cleancss -o css/style.min.css css/style.css",
+    "build:img": "sharp -i assets/imagens/banner-ong.jpg -o assets/imagens/banner-ong.webp",
+    "build": "cmd /c \"npm run build:js && npm run build:css && npm run build:img\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giovannamartinsm/site-ong-maos-abertas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/giovannamartinsm/site-ong-maos-abertas/issues"
+  },
+  "homepage": "https://github.com/giovannamartinsm/site-ong-maos-abertas#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "nodemon": "^3.1.14",
+    "sharp-cli": "^6.1.0",
+    "terser": "^5.51.2",
+    "vite": "^8.3.2"
+  }
+}
