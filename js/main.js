@@ -8,7 +8,10 @@ const routes = {
   "#/" : `
     <section id="sobre">
         <h2>Sobre a Nossa ONG</h2>
-        <img src="../assets/imagens/banner-ong.jpg" alt="Voluntários da ONG sorrindo e organizando doações de alimentos">
+        <picture>
+          <source srcset="../assets/imagens/banner-ong.webp" type="image/webp">
+          <img src="../assets/imagens/banner-ong.jpg" alt="Voluntários da ONG sorrindo e organizando doações de alimentos" loading="lazy" width="1200" height="600" style="max-width: 100%; height: auto;">
+        </picture>
         <p>Nossa missão é transformar vidas através da solidariedade e da ação comunitária, oferecendo suporte a quem mais precisa.</p>
     </section>
 
@@ -188,7 +191,7 @@ function aplicarMascaras() {
 }
 
 /**
- * Rotinas de validação, tratamento de eventos e persistência do formulário
+ * Rotinas de validação, tratamento de eventos e envio via API (Node.js) + Persistência
  */
 function initFormValidation() {
   const form = document.getElementById("form-cadastro");
@@ -197,7 +200,7 @@ function initFormValidation() {
   // Ativa as máscaras automáticas nos campos
   aplicarMascaras();
 
-  form.addEventListener("submit", function (e) {
+  form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
     // Padrões de validação e mensagens por campo
@@ -277,10 +280,6 @@ function initFormValidation() {
     }
 
     // SE TUDO ESTIVER CORRETO:
-    // 1. Pega os cadastros antigos salvos ou cria uma lista vazia
-    const voluntariosExistentes = JSON.parse(localStorage.getItem("voluntariosCadastrados")) || [];
-
-    // 2. Cria o novo objeto com os dados digitados
     const novoVoluntario = {
       nome: document.getElementById("nome").value.trim(),
       cpf: document.getElementById("cpf").value.trim(),
@@ -290,18 +289,49 @@ function initFormValidation() {
       cep: document.getElementById("cep").value.trim()
     };
 
-    // 3. Adiciona o novo voluntário ao final do Array
+    // 1. Salva no localStorage (Persistência Local)
+    const voluntariosExistentes = JSON.parse(localStorage.getItem("voluntariosCadastrados")) || [];
     voluntariosExistentes.push(novoVoluntario);
-
-    // 4. Salva o Array completo de volta no localStorage
     localStorage.setItem("voluntariosCadastrados", JSON.stringify(voluntariosExistentes));
 
-    if (feedback) {
-      feedback.innerHTML = `
-        <div class="alert alert-success">
-          <strong>Sucesso!</strong> Cadastro realizado e salvo com sucesso no navegador!
-        </div>
-      `;
+    // 2. Envia para a API Node.js/Express via POST
+    try {
+      const resposta = await fetch("http://localhost:3000/api/voluntarios", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(novoVoluntario)
+      });
+
+      const dados = await resposta.json();
+
+      if (resposta.ok) {
+        if (feedback) {
+          feedback.innerHTML = `
+            <div class="alert alert-success">
+              <strong>Sucesso!</strong> ${dados.mensagem} (Guardado na API e no navegador)
+            </div>
+          `;
+        }
+      } else {
+        if (feedback) {
+          feedback.innerHTML = `
+            <div class="alert alert-danger">
+              <strong>Erro na API:</strong> ${dados.erro || "Não foi possível cadastrar."}
+            </div>
+          `;
+        }
+      }
+    } catch (erro) {
+      console.error("Erro ao enviar para o servidor:", erro);
+      if (feedback) {
+        feedback.innerHTML = `
+          <div class="alert alert-warning">
+            <strong>Aviso:</strong> Dados salvos no navegador, mas o servidor Node.js não respondeu. Certifique-se de rodar <code>npm run dev</code>.
+          </div>
+        `;
+      }
     }
 
     // Limpa os campos do formulário e remove as cores das bordas
